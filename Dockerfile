@@ -8,14 +8,14 @@ USER gradle
 # First line after FROM should be unique to avoid --cache-from weirdness.
 RUN echo "Cuebot build stage"
 
-COPY --chown=gradle:gradle ./cuebot /home/gradle/cuebot/
-COPY --chown=gradle:gradle ./proto /home/gradle/proto/
+COPY --chown=gradle:gradle ./OpenCue/cuebot /home/gradle/cuebot/
+COPY --chown=gradle:gradle ./OpenCue/proto /home/gradle/proto/
 
 WORKDIR /home/gradle/cuebot
 
 RUN gradle build --stacktrace
 
-COPY VERSION.in VERSIO[N] ./
+COPY ./OpenCue/VERSION.in VERSIO[N] ./
 RUN test -e VERSION || echo "$(cat VERSION.in)-custom" | tee VERSION
 RUN mv ./build/libs/cuebot.jar ./build/libs/cuebot-$(cat ./VERSION)-all.jar
 
