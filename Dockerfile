@@ -43,6 +43,7 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install \
         curl \
+        gnupg2 \
         openjdk-11-jre \
         --no-install-recommends \
         -y
