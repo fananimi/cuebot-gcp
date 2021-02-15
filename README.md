@@ -14,17 +14,17 @@ Create Container
 # docker run \
 -e GCS_FUSE_BUCKET=$GCS_FUSE_BUCKET \
 -e GCS_FUSE_MOUNT=$GCS_FUSE_MOUNT \
+-e DB_HOST=$DB_HOST \
+-e DB_NAME=$DB_NAME \
+-e DB_USER=$DB_USER \
+-e DB_PASS=$DB_PASS \
 -dit \
 --name cuebot \
 --network host \
 --privileged \
 -p 8080:8080 \
 -p 8443:8443 \
-<IMAGE_ID> \
---datasource.cue-data-source.jdbc-url=jdbc:postgresql://$DB_HOST_IN_DOCKER/$DB_NAME \
---datasource.cue-data-source.username=$DB_USER \
---datasource.cue-data-source.password=$DB_PASS \
---log.frame-log-root="${CUE_FS_ROOT}/logs"
+<IMAGE_ID>
 ~~~~
 
 Figure 1 - OpenCue Architecture
