@@ -6,4 +6,4 @@ java -jar /opt/opencue/cuebot-latest.jar \
 --datasource.cue-data-source.jdbc-url=jdbc:postgresql://$DB_HOST:$DB_PORT/$DB_NAME \
 --datasource.cue-data-source.username=$DB_USER \
 --datasource.cue-data-source.password=$DB_PASS \
---log.frame-log-root="${CUE_FS_ROOT}/logs"
+--log.frame-log-root="${GCS_FUSE_MOUNT}/logs"
