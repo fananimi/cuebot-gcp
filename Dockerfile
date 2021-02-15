@@ -42,6 +42,7 @@ ENV GCS_FUSE_MOUNT /shots
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install \
+        curl \
         openjdk-11-jre \
         --no-install-recommends \
         -y
