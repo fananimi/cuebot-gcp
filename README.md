@@ -14,14 +14,15 @@ Create Container
 ----------------
 ~~~~
 # docker run \
--e CUEBOT_HOSTNAME=<CUEBOT_HOSTNAME> \
--e GCS_FUSE_BUCKET=<GCS_FUSE_BUCKET> \
 -dit \
---network host \
---name rqd \
---gpus all \
---privileged \
---restart always \
+--name cuebot \
+-p 8080:8080 \
+-p 8443:8443 \
+opencue/cuebot \
+--datasource.cue-data-source.jdbc-url=jdbc:postgresql://$DB_HOST_IN_DOCKER/$DB_NAME \
+--datasource.cue-data-source.username=$DB_USER \
+--datasource.cue-data-source.password=$DB_PASS \
+--log.frame-log-root="${CUE_FS_ROOT}/logs" \
 <IMAGE_ID>
 ~~~~
 
