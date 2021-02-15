@@ -92,4 +92,7 @@ ENV grpc_rqd_port ${CUEBOT_GRPC_RQD_PORT}
 
 EXPOSE $grpc_cue_port
 
-ENTRYPOINT ["java", "-jar", "/opt/opencue/cuebot-latest.jar"]
+COPY startup.sh ./startup.sh
+# NOTE: This shell out is needed to avoid RQD getting PID 0 which leads to leaking child processes.
+ENTRYPOINT ["./startup.sh"]
+
