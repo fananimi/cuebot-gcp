@@ -36,6 +36,13 @@ ENV GCS_FUSE_BUCKET YOUR_BUCKET_NAME
 # This is the GCS bucket mount point on your Render Host. Referenced in startup.sh.sh
 ENV GCS_FUSE_MOUNT /shots
 
+# This is the postgresql connection
+ENV DB_HOST localhost
+ENV DB_PORT 5432
+ENV DB_NAME cuebot
+ENV DB_USER postgres
+ENV DB_PASS postgres
+
 # --------------------------------------------------------------------
 # Install some dependencies
 # --------------------------------------------------------------------
