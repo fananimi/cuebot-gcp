@@ -16,6 +16,7 @@ Create Container
 -e GCS_FUSE_MOUNT=$GCS_FUSE_MOUNT \
 -dit \
 --name cuebot \
+--network host \
 --privileged \
 -p 8080:8080 \
 -p 8443:8443 \
